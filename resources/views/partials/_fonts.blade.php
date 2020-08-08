@@ -1,0 +1,2 @@
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Rubik&display=swap" rel="stylesheet"> 

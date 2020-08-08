@@ -1,0 +1,56 @@
+.comment {
+    margin-bottom: 45px;
+}
+
+.author-name>h4 {
+    margin: 5px 0px;
+}
+
+.author-name {
+    float: left;
+    margin-left: 15px;
+}
+
+.author-time {
+    font-size: 11px;
+    font-style: italic;
+    color: #aaaa;
+}
+
+.comment-content {
+    clear: both;
+    margin-left: 65px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.3em;
+    font-weight: lighter;
+}
+
+.author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+}
+
+.comments-title {
+    font-family: 'Bree Serif', serif;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.form-div-spacing {
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.post-time {
+    font-style: italic;
+}
+
+.feed-centre {
+    margin-left: 200px;
+}
