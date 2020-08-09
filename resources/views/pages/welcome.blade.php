@@ -48,8 +48,7 @@
                                 In <strong><a class="text-body" href="{{ route('courses.show', $course->id)}}">{{ $course->code}}. {{ strtoupper($course->name)}}</a></strong><br>
                             </div>
                             <div>
-                                <span>
-                                    {{$post->featured_file}}</span>
+                                <span><a href="files/{{$post->featured_file}}" download="{{$post->featured_file}}">{{$post->featured_file}}</a></span>
                             </div>
                             <p class="lead"><a class="text-body"  style="text-decoration: none;" href="{{ route('posts.show',$post->id) }}"> {{ $post->body }}</a>
                             </p>

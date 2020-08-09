@@ -75,11 +75,23 @@ class PostController extends Controller
         $post->course_id = $request->course_id;
 
         //save image
-        if($request->hasfile('featured_file')){
-            $file = $request->file('featured_file');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $location = public_path('files/' . $filename);
+        // if($request->hasFile('featured_file')){
+        //     $file = $request->file('featured_file');
+        //     $filename = time() . '.' . $file->getClientOriginalExtension();
+        //     $location = public_path('files/' . $filename);
+        //     $file ->move($location, $filename);
+
             
+
+        //     $post->featured_file = $filename;
+        // }
+        if($request->hasFile('featured_file'))
+        {
+            $file = $request->file('featured_file');
+            $location = public_path('files/');
+            $originalFile = $file->getClientOriginalName();
+            $filename = strtotime(date('Y-m-d-H:isa')).$originalFile;
+            $file ->move($location, $filename);
 
             $post->featured_file = $filename;
         }
