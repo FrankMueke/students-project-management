@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.main')
 <?php $titleTag = htmlspecialchars($user->name); ?>
 @section('title', '| ' .e($user->name))
 @section('content')
@@ -8,7 +8,7 @@
             <div class="">
                 <div class="row">
                     <div class="col-xs-2 offset-5 text-center">
-                        <img src="{{ "https://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email)))}} alt="Avatar here" class="author-image">
+                    <img src="uploads/avatars/{{ $post->user->avatar}}" class="author-image ">
                     </div>
                 </div>
                 <div class="row mt-2">

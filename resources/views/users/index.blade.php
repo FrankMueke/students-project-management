@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.main')
 <?php $titleTag = htmlspecialchars($user->name); ?>
 @section('title', '| ' .e($user->name))
 @section('content')
@@ -8,7 +8,7 @@
      <div class="">
          <div class="row">
              <div class="col-sm-2 offset-5 text-center">
-                 <img src="{{ "https://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email)))}} alt="Avatar here" class="author-image">
+                <img src="uploads/avatars/{{ $user->avatar}}" class="author-image ">
              </div>
          </div>
          <div class="row mt-2">
@@ -41,7 +41,7 @@
                 <div class="card flex-fill">
                   <a href="{{ url('blog/'.$post->slug) }}"><img class="card-img-top postimg rounded-top" src="{{ asset('images/'. $post->featured_image )}}" height="175" width="300" alt="Image here"></a>
                   <div class="card-body">
-                    <a class="text-body" href="{{ url('blog/'.$post->slug) }}"><h5 class="card-title heading">{{ $post->title }}</h5></a>
+                    <a class="text-body" href="{{ url($post->slug) }}"><h5 class="card-title heading">{{ $post->title }}</h5></a>
                     <p class="card-text">{{ substr(strip_tags($post->body), 0, 100) }}{{ strlen(strip_tags($post->body)) > 100 ? "..." : "" }}</p>
                   </div>
                   <div class="card-footer">

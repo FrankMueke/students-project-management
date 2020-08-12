@@ -31,6 +31,7 @@
     height: 50px;
     border-radius: 50%;
     float: left;
+    margin-right: 20px;
 }
 
 .comments-title {
@@ -53,4 +54,48 @@ a {
 
 .feed-centre {
     margin-left: 200px;
+}
+
+.post-content {
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px 1px grey;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+}
+
+.glys {
+    height: 20px;
+    width: 20px;
+}
+
+.post-create {
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px 1px grey;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+}
+
+.avatarstyle {
+    width: 150px;
+    height: 150px;
+    float: left;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+
+.avatarnav {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+}
+
+.post-upic {
+    margin-right: 40px;
 }

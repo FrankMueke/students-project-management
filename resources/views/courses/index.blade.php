@@ -2,33 +2,34 @@
 @section('title', '| Courses')
 @section('content')
 <div class="row">
-    <div class="col-md-5 offset-1">
+    <div class="col-md-6 offset-1">
         <h1>My courses</h1>
         <table class="form-div-spacing">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Code</th>
-                    <th>Name</th>
+                    <th>Code </th>
+                    <th>Name </th>
+                    <th>ClassCode </th>
                 </tr>
             </thead>
             <tbody>
             
             @foreach($courses as $course)
                 <tr>
-                    <th>{{ $course->id}}</th>
-                    <th>{{ $course->code}}</th>
-                    <td><a href="{{ route('courses.show', $course->id)}}">{{ $course->name}}</a></td>
+                    <th>{{ $course->id}} </th>
+                    <th>{{ $course->code}} </th>
+                    <td><a href="{{ route('courses.show', $course->id)}}">{{ $course->name}} </a></td>
+                    <td><input type="text" value="{{ $course->classcode}}" id="classcode"></td>
+                    <td><button onclick="copyText()">Copy</button></td>
                 </tr>
             @endforeach    
            
             </tbody>
         </table>
-                            <a href="{{ route('register') }}">Register</a>
-                        
         <!-- <button type="submit" class="btn btn-success btn-block"><a href="{{ route('register')}}">Add student to course</a></button> -->
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="well">
             <h1>Create a new course</h1>
             <form action="{{ route('courses.store')}}" method="POST">

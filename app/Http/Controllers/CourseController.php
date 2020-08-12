@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Course;
 use App\User;
+use App\Post;
+use Illuminate\Support\Str;
 use App\Http\Controllers\UserController;
 class CourseController extends Controller
 {
@@ -44,15 +46,15 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
-            'code'=>'required|min:7|max:9',
+            'code'=>'required|min:7|max:9|unique:courses,code',
             'name' => 'required'
         ));
         $course = new Course;
-        $course->code = $request->code;
-        $course->name = $request->name;
-        $course['user_id'] = Auth::user()->id;
         
-        // $course->user()->associate($request->user());
+        $course->name = $request->name;
+        $course->code = $request->code;
+        $course['user_id'] = Auth::user()->id;
+        $course->classcode = Str::random(6);    
 
         $course->save();
 
@@ -97,16 +99,17 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $course = Course::find($id);
+
         $this->validate($request, array(
-            'code' => 'required|min:7|max:7',
+            'code' => "required|min:7|max:9|unique:courses,code,$id",
             'name' => 'required'
         ));
-        $course = new Course;
-
-        $course->code = $request->code;
         $course->name = $request->name;
-
-        $course-> save();
+        $course->code = $request->code;
+        $course['user_id'] = Auth::user()->id;
+        $course->classcode = Str::random(6); 
+        $course->save();
 
         $request = session()->flash('sucess', 'Course edited successfully');
 
