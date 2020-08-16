@@ -20,6 +20,6 @@ class Classroom extends Model
     }
     public function course()
     {
-        return $this->belongsTo('Course');
+        return $this->belongsTo('App\Course');
     }
 }

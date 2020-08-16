@@ -24,3 +24,6 @@ Route::get('/', 'PagesController@getIndex');
 Route::get('aboutus', 'PagesController@getAbout');
 Route::get('contactus', ['uses'=>'PagesController@getContact', 'as'=>'home']);
 Route::post('contactus', 'PagesController@postContact');
+//classrooms
+Route::resource('classrooms', 'ClassroomController');
+Route::post('classrooms/{course_id}', 'ClassroomController@store')->name('classrooms.store');

@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Classroom;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use App\Course;
 
 class ClassroomController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +22,8 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        //
+        $classrooms = DB::table('classrooms')->get();
+        return view('classrooms.index')->withClassrooms($classrooms);
     }
 
     /**
@@ -32,9 +42,36 @@ class ClassroomController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $course_id)
     {
-        //
+        $this->validate($request, array(
+            'name' => 'required'
+        
+        ));
+        // $course = Course::find($course_id);
+        // $classroom = new Classroom();
+
+        // $classroom->name = $request->name;
+        // // $classroom['user_id'] = Auth::user()->id;
+        // $classroom->user()->associate($request->user());
+        // $classroom->classcode = Str::random(6);
+        // $classroom->course()->associate($course);
+
+        $course = Course::find($course_id);
+        $classroom = new Classroom();
+        
+        $classroom->name = $request->name;
+        $classroom->user()->associate($request->user());
+        $classroom->classcode = Str::random(6);
+        $classroom->course()->associate($course);
+
+
+        $classroom->save();
+
+        $request = Session()->flash('success', 'Class created successfully');
+
+        return back();
+
     }
 
     /**
@@ -45,7 +82,9 @@ class ClassroomController extends Controller
      */
     public function show($id)
     {
-        //
+        $classroom = Classroom::find($id);
+
+        return view('classrooms.show', compact('classroom'));
     }
 
     /**

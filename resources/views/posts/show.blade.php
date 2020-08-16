@@ -17,7 +17,9 @@
             </svg>    </span>{{ $post->comments()->count() }} Comments</h3>
         @foreach ($post->comments->sortByDesc('id') as $comment)
             <div class="author-info">
-            <img src="{{ "https://www.gravatar.com/avatar/". md5(strtolower(trim($comment->user->email))) . "?s=50&f=y" }}"  class="author-image">
+            <div class="post-upic">
+                                <img src="uploads/avatars/{{ $post->user->avatar}}" class="author-image ">
+                                </div>
                 <div class="author-name">    
                     <h4>{{ $comment->user->name }}</h4>
                      <p class="author-time">{{ date('F nS, Y -g:i A' ,strtotime($comment->created_at)) }}</p>

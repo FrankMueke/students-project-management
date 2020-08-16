@@ -10,7 +10,6 @@
                     <th>#</th>
                     <th>Code </th>
                     <th>Name </th>
-                    <th>ClassCode </th>
                 </tr>
             </thead>
             <tbody>
@@ -19,9 +18,7 @@
                 <tr>
                     <th>{{ $course->id}} </th>
                     <th>{{ $course->code}} </th>
-                    <td><a href="{{ route('courses.show', $course->id)}}">{{ $course->name}} </a></td>
-                    <td><input type="text" value="{{ $course->classcode}}" id="classcode"></td>
-                    <td><button onclick="copyText()">Copy</button></td>
+                    <td><a href="{{ route('courses.show', $course->id)}}">{{ $course->name}} </a></td>     
                 </tr>
             @endforeach    
            

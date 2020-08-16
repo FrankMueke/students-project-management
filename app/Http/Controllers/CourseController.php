@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classroom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,7 @@ use App\User;
 use App\Post;
 use Illuminate\Support\Str;
 use App\Http\Controllers\UserController;
+
 class CourseController extends Controller
 {
     public function __construct()
@@ -54,7 +56,7 @@ class CourseController extends Controller
         $course->name = $request->name;
         $course->code = $request->code;
         $course['user_id'] = Auth::user()->id;
-        $course->classcode = Str::random(6);    
+            
 
         $course->save();
 
@@ -73,8 +75,9 @@ class CourseController extends Controller
     public function show($id)
     {
         $course = Course::find($id);
+        $classroom = Classroom::find($id);
 
-        return view('courses.show', compact('course'));
+        return view('courses.show')->withCourse($course)->withClassroom($classroom);
     }
 
     /**
@@ -108,7 +111,8 @@ class CourseController extends Controller
         $course->name = $request->name;
         $course->code = $request->code;
         $course['user_id'] = Auth::user()->id;
-        $course->classcode = Str::random(6); 
+        
+
         $course->save();
 
         $request = session()->flash('sucess', 'Course edited successfully');

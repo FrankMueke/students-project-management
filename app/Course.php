@@ -14,8 +14,8 @@ class Course extends Model
     {
         return $this->hasMany('Post');
     }
-    public function classroom()
+    public function classrooms()
     {
-        return $this->hasMany('Classroom');
+        return $this->hasMany('App\Classroom');
     }
 }
