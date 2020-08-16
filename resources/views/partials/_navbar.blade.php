@@ -21,14 +21,19 @@
       </ul>
     @if (Auth::check())
       <ul class="nav-item dropdown">
-        <img src="uploads/avatars/{{ Auth::user()->avatar}}" class="avatarnav" alt="avatar here">
+        <img src="uploads/avatars/{{ Auth::user()->avatar}}" class="avatarnav" alt="">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Hello {{Auth::user()->name}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          @can('isAdmin')
           <a class="dropdown-item" href="{{ route('posts.index') }}">All Posts</a>
-          <a class="dropdown-item" href="{{ route('register') }}">Register user</a>
+          <a class="dropdown-item" href="{{ route('users.create') }}">Register user</a>
+          @endcan
           <a class="dropdown-item" href="{{ route('courses.index') }}">My Courses</a>
+          @can('isStudent')
+          <a class="dropdown-item" href="{{ route('users.edit', Auth::id())}}">Join Class</a>
+          @endcan
           <a class="dropdown-item" href="{{ route('users.edit', Auth::id())}}">Update Profile</a>
           
         <a class="dropdown-item" href="{{ route('logout') }}"

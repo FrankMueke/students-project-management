@@ -29,6 +29,7 @@
         </table>
         <!-- <button type="submit" class="btn btn-success btn-block"><a href="{{ route('register')}}">Add student to course</a></button> -->
     </div>
+    @can('isSupervisor')
     <div class="col-md-3">
         <div class="well">
             <h1>Create a new course</h1>
@@ -48,5 +49,6 @@
             
         </div>
     </div>
+    @endcan
 </div>
 @endsection

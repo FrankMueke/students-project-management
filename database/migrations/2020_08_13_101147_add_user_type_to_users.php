@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use PhpParser\Node\Expr\Cast\String_;
 
-class AddClasscodeToCourses extends Migration
+class AddUserTypeToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +13,8 @@ class AddClasscodeToCourses extends Migration
      */
     public function up()
     {
-        Schema::table('courses', function (Blueprint $table) {
-            $table->string('classcode')->after('user_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('user_type')->default('user')->nullable()->after('course_id');
         });
     }
 
@@ -26,8 +25,8 @@ class AddClasscodeToCourses extends Migration
      */
     public function down()
     {
-        Schema::table('courses', function (Blueprint $table) {
-            $table->dropColumn('classcode');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('user_type');
         });
     }
 }

@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
+use Illuminate\Auth\Access\Gate;
 use Image;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        return $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     return $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +39,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        if(!\Gate::allows('isAdmin'))
+        {
+            abort(403, "Sorry, you cannot do these actions");
+        }
+        return view('users.create');
     }
 
     /**
@@ -47,7 +54,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, array(
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|string|max:255|unique:users',
+            'user_type' => 'required|string',
+            'password' => 'required|min:8|string|confirmed'
+        ));
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->user_type = $request->user_type;
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+        $request->session()->flash('success','User created sucessfully');
+
+        
+        return redirect()->back();
     }
 
     /**
@@ -92,11 +115,13 @@ class UserController extends Controller
         $this->validate($request, array(
             'name'=> 'required',
             'email' => 'required|email',
-            'avatar' => 'sometimes|image'
+            'avatar' => 'sometimes|image',
+            'classcode' => 'sometimes'
         ));
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->classcode = $request->classcode;
 
         if($request->hasFile('avatar'))
         {

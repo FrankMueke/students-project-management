@@ -6,8 +6,8 @@
 <div class="row">
     <div class="col-md-6 offset-3">
         <form action="{{ route('users.update', $user->id)}}" method="POST" enctype="multipart/form-data">
-        @csrf 
-        @method('PATCH')
+            @csrf 
+         @method('PATCH')
                 <h2>{{ $user->name }}'s Profile</h2>
             <div class="form-group">
                 <img class="avatarstyle" src="/uploads/avatars/{{$user->avatar}}" alt="Avatar">
@@ -21,6 +21,12 @@
                 <label for="email">Email</label>
                 <input type="text" name="email" value="{{$user->email}}" class="form-control">
             </div>
+            @can('isStudent')
+            <div class="form-group">
+                <label for="classcode">Enter code to join</label>
+                <input type="text" name="classcode" class="form-control">
+            </div>
+            @endcan
            <button type="submit" class="pull-right btn btn-sm btn-primary">Update Profile</button>
         </form>
     </div>
