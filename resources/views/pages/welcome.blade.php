@@ -21,15 +21,16 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group textareacont">
                             <label for="body">Message </label>
-                            <textarea name="body" type="text" id="textarea" cols="20" rows="2" class="form-control" placeholder="What's in your mind?"></textarea>
+                            <button type="submit" class="submit_btn btn btn-success btn-block form-div-spacing">Send</button>
+                            <textarea class="txtarea" name="body" type="text" id="textarea" cols="20" rows="2" class="form-control" placeholder="What's in your mind?"></textarea>
                         </div>
-                        <div>
+                        <div >
                             <label for="featured_file">Attach File <img src="https://www.glyphicons.com/img/glyphicons/basic/2x/glyphicons-basic-63-paperclip@2x.png" alt=""></label>
                             <input type="file" name="featured_file" class="form-control form-div-spacing">
                         </div>
-                        <button type="submit" class="btn btn-success btn-block form-div-spacing">Send</button>
+                        
                     </form>
             </div>
             
@@ -59,7 +60,7 @@
                         </div>
                     @endforeach
                     @else
-                    No posts yet
+                                <h1> No posts yet</h1>
                     @endif
                   </div>
                  

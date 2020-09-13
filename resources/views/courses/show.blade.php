@@ -2,10 +2,11 @@
 @section('content')
 <div class="row">
     <div class="col-md-8">
+        
     <dl>
         <dt>Classes in {{ $course->code}} {{ $course->name}}</dt>
         
-        <dd><a href="{{ route('classrooms.show', $course->id)}}">{{$classroom->id}}  {{$classroom->name}} </a></dd>
+        <dd><a href="{{ route('classrooms.show', $classroom->id)}}">{{$classroom->id}}  {{$classroom->name}} </a></dd>
     </dl>
           
     </div>

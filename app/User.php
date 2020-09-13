@@ -45,8 +45,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comment');
     }
-    public function course()
+    public function courses()
     {
-        return $this->hasOne('Course');
+        return $this->hasMany('Course');
+    }
+    public function classrooms()
+    {
+        return $this->belongsToMany('Classroom');
     }
 }

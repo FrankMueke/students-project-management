@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-4 offset-4">
-        <h1>Create a new superuser</h1>
+        <h1>Create a new student</h1>
         <form action="{{ route('users.store')}}" method="post">
             @csrf 
             <div class="form-group">
@@ -16,8 +16,23 @@
             <div class="form-group">
                 <label for="user_type">User Type</label>
                 <select name="user_type" id="user_type">
-                    <option value="admin">Admin</option>
-                    <option value="supervisor">Supervisor</option>
+                    <option value="student">Student</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="supervisor">Supervisor</label>
+                <select name="supervisor_id" id="supervisor">
+                @foreach($supervisors as $supervisor)
+                    <option value="{{$supervisor->id}}">Lec. {{$supervisor->name}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="classroom">Classroom</label>
+                <select name="classroom_id" id="classroom">
+                @foreach($classrooms as $classroom)
+                    <option value="{{$classroom->id}}"> {{$classroom->name}}</option>
+                @endforeach
                 </select>
             </div>
             <div class="form-group">

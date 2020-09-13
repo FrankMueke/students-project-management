@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Course;
+use App\User;
 use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
+    // public function getIndex($id){
+    //     $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+    //     $user = User::find($id);
+    //     $classrooms = $user->classrooms()->get();
+        
+    //     return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
+
+    // }
     public function getIndex(){
         $posts = Post::orderBy('created_at', 'desc')->paginate(10);
         $courses = Course::all();

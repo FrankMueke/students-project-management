@@ -21,6 +21,24 @@
                 <label for="email">Email</label>
                 <input type="text" name="email" value="{{$user->email}}" class="form-control">
             </div>
+            <div class="form-group">
+                <label for="university">University</label>
+                <input type="text" name="university" value="{{$user->university}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" name="department" value="{{$user->department}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="yos">Year of study</label>
+                <input type="text" name="yos" value="{{$user->yos}}" class="form-control">
+                <select name="yos" id="yos">
+                    <option value="4.1">4.1</option>
+                    <option value="4.2">4.2</option>
+                    <option value="5.1">5.1</option>
+                    <option value="5.2">5.2</option>
+                </select>
+            </div>
             @can('isStudent')
             <div class="form-group">
                 <label for="classcode">Enter code to join</label>

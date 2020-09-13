@@ -8,7 +8,7 @@ class Classroom extends Model
 {
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User');
     }
     public function posts()
     {
@@ -21,5 +21,9 @@ class Classroom extends Model
     public function course()
     {
         return $this->belongsTo('App\Course');
+    }
+    public function student()
+    {
+        return $this->belongsToMany('Student');
     }
 }

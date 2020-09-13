@@ -99,3 +99,31 @@ a {
 .post-upic {
     margin-right: 40px;
 }
+
+.textareacont {
+    position: relative;
+    border: 1px solid black;
+    width: auto;
+    height: auto;
+    display: inline-block;
+    padding: 0;
+}
+
+.txtarea {
+    margin: 0;
+    border-color: rgb a(255, 255, 255, 0);
+    padding: 10px;
+    min-width: 150px;
+    min-height: 50px;
+    margin-bottom: 40px;
+}
+
+.submit_btn {
+    position: absolute;
+    bottom: 8px;
+    right: 15px;
+    background-color: #2f3745;
+    padding: 4px;
+    color: wheat;
+    cursor: pointer;
+}

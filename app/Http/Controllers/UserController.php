@@ -43,7 +43,16 @@ class UserController extends Controller
         {
             abort(403, "Sorry, you cannot do these actions");
         }
+       
         return view('users.create');
+    }
+    public function createstudent()
+    {
+        if(!\Gate::allows('isAdmin'))
+        {
+            abort(403, "Sorry, you cannot do these actions");
+        }
+        return view('users.createstudent');
     }
 
     /**
@@ -64,7 +73,9 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->user_type = $request->user_type;
-        $user->password = Hash::make($request->password);
+        $user->supervisor_id = $request->supervisor_id;
+        $user->classroom_id = $request->classroom_id;
+         $user->password = Hash::make($request->password);
 
         $user->save();
         $request->session()->flash('success','User created sucessfully');
@@ -116,12 +127,18 @@ class UserController extends Controller
             'name'=> 'required',
             'email' => 'required|email',
             'avatar' => 'sometimes|image',
-            'classcode' => 'sometimes'
+            'classcode' => 'sometimes',
+            'university' => 'sometimes',
+            'department'=> 'sometimes',
+            'yos'=> 'sometimes'
         ));
 
         $user->name = $request->name;
         $user->email = $request->email;
         $user->classcode = $request->classcode;
+        $user->university = $request->university;
+        $user->department = $request->department;
+        $user->yos = $request->yos;
 
         if($request->hasFile('avatar'))
         {
