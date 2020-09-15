@@ -101,29 +101,45 @@ a {
 }
 
 .textareacont {
-    position: relative;
-    border: 1px solid black;
-    width: auto;
-    height: auto;
-    display: inline-block;
-    padding: 0;
+    /* This bit sets up the horizontal layout */
+    display: flex;
+    flex-direction: row;
+    /* I've used padding so you can see the edges of the elements. */
+    padding: 2px;
 }
 
 .txtarea {
-    margin: 0;
-    border-color: rgb a(255, 255, 255, 0);
-    padding: 10px;
-    min-width: 150px;
-    min-height: 50px;
-    margin-bottom: 40px;
+    /* Tell the input to use all the available space */
+    flex-grow: 2;
+    /* And hide the input's outline, so the form looks like the outline */
+    border: none;
 }
 
-.submit_btn {
+.txtarea:focus {
+    /* removing the input focus blue box. Put this on the form if you like. */
+    outline: none;
+}
+
+
+/* .submit_btn {
     position: absolute;
-    bottom: 8px;
-    right: 15px;
-    background-color: #2f3745;
-    padding: 4px;
-    color: wheat;
+    top: 0;
+    border-radius: 5px;
+    right: 0px;
+    z-index: 2;
+    border: none;
+    top: 2px;
+    height: 30px;
     cursor: pointer;
+    color: white;
+    background-color: #1e90ff;
+    transform: translateX(2px);
+} */
+
+.submit_btn {
+    background: : transparent;
+}
+
+#myFileInput {
+    display: none;
 }

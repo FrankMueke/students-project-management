@@ -63,7 +63,7 @@ class PostController extends Controller
         $this->validate($request,array(
             'title' => 'required|min:5|max:60',
             'body' => 'required',
-            'course_id' => 'required|integer',
+            'classroom_id' => 'required|integer',
             'featured_file' => 'sometimes'
         ));
        
@@ -72,7 +72,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->slug = \Str::slug($request->title);
         $post['user_id'] = Auth::user()->id;
-        $post->course_id = $request->course_id;
+        $post->classroom_id = $request->classroom_id;
 
         //save image
         // if($request->hasFile('featured_file')){

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Course;
 use App\User;
+use App\Classroom;
 use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
@@ -20,9 +21,9 @@ class PagesController extends Controller
     // }
     public function getIndex(){
         $posts = Post::orderBy('created_at', 'desc')->paginate(10);
-        $courses = Course::all();
+        $classrooms= Classroom::where('user_id', auth()->id())->get();
         
-        return view('pages.welcome')->withPosts($posts)->withCourses($courses);
+        return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
 
     }
  
