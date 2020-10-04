@@ -5,12 +5,12 @@
         
     <dl>
         <dt>Classes in {{ $course->code}} {{ $course->name}}</dt>
-        
+        @foreach ($classroom as $classroom)
         <dd><a href="{{ route('classrooms.show', $classroom->id)}}">{{$classroom->id}}  {{$classroom->name}} </a></dd>
+        @endforeach
     </dl>
           
     </div>
-    
     <div class="col-md-2">
         <a href="{{ route('courses.edit', $course->id)}}" class="btn btn-success btn-block">Edit</a>
     </div>

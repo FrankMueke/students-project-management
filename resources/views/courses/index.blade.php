@@ -26,7 +26,7 @@
         </table>
         <!-- <button type="submit" class="btn btn-success btn-block"><a href="{{ route('register')}}">Add student to course</a></button> -->
     </div>
-    @can('isSupervisor')
+    @can('isAdmin')
     <div class="col-md-3">
         <div class="well">
             <h1>Create a new course</h1>

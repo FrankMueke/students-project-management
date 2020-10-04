@@ -23,5 +23,9 @@ class Post extends Model
     {
         return $this->belongsTo('Course');
     }
+    public function classroom()
+    {
+        return $this->belongsTo('App\Classroom');
+    }
 }
 

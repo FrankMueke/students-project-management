@@ -74,10 +74,16 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $course = Course::find($id);
-        $classroom = Classroom::find($id);
+        // $course = Course::find($id);
+        // $classroom = Classroom::where('course_id', $id)->get();
+        // $posts = Post::where('classroom_id', $id)->get();
 
-        return view('courses.show')->withCourse($course)->withClassroom($classroom);
+        // return view('courses.show')->withCourse($course)->withClassroom($classroom)->withPosts($posts);
+        $course = Course::find($id);
+        $classroom = Classroom::where('course_id', $id)->get();
+        
+        return view('courses.show', compact('course', 'classroom'));
+
     }
 
     /**

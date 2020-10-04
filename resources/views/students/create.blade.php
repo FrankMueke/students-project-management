@@ -28,13 +28,14 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="classroom">Classroom</label>
-                <select name="classroom_id" id="classroom">
-                @foreach($classrooms as $classroom)
-                    <option value="{{$classroom->id}}"> {{$classroom->name}}</option>
+                <label for="course">Course</label>
+                <select name="course_id" id="course_id">
+                @foreach($courses as $course)
+                    <option value="{{$course->id}}">{{$course->name}}</option>
                 @endforeach
                 </select>
             </div>
+            
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" class="form-control">

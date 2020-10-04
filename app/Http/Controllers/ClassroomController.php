@@ -8,6 +8,10 @@ use App\Classroom;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Course;
+use App\Post;
+use App\User as AppUser;
+use Illuminate\Foundation\Auth\User;
+
 
 class ClassroomController extends Controller
 {
@@ -62,7 +66,8 @@ class ClassroomController extends Controller
         $classroom = new Classroom();
         
         $classroom->name = $request->name;
-        $classroom->user()->associate($request->user());
+        $classroom['user_id'] = Auth::user()->id;
+        // $classroom->user()->associate($request->user());
         $classroom->classcode = Str::random(6);
         $classroom->course()->associate($course);
 
@@ -84,8 +89,10 @@ class ClassroomController extends Controller
     public function show($id)
     {
         $classroom = Classroom::find($id);
-
-        return view('classrooms.show', compact('classroom'));
+       
+        $posts = Post::where('classroom_id', $id)->get();
+       
+        return view('classrooms.show', compact('classroom', 'posts'));
     }
 
     /**

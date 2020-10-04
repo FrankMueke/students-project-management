@@ -7,8 +7,10 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\DB;
 use Image;
 use Illuminate\Support\Facades\Hash;
+
 
 
 class UserController extends Controller
@@ -39,14 +41,15 @@ class UserController extends Controller
      */
     public function create()
     {
+        $courses = DB::table('courses')->where('user_id', auth()->id())->get();
         if(!\Gate::allows('isAdmin'))
         {
             abort(403, "Sorry, you cannot do these actions");
         }
        
-        return view('users.create');
+        return view('users.create',compact('courses'));
     }
-    public function createstudent()
+    public function addstudenttoclass()
     {
         if(!\Gate::allows('isAdmin'))
         {
@@ -75,6 +78,7 @@ class UserController extends Controller
         $user->user_type = $request->user_type;
         $user->supervisor_id = $request->supervisor_id;
         $user->classroom_id = $request->classroom_id;
+        $user->course_id = $request->course_id;
          $user->password = Hash::make($request->password);
 
         $user->save();

@@ -64,6 +64,7 @@ class PostController extends Controller
             'title' => 'required|min:5|max:60',
             'body' => 'required',
             'classroom_id' => 'required|integer',
+           
             'featured_file' => 'sometimes'
         ));
        
@@ -73,6 +74,7 @@ class PostController extends Controller
         $post->slug = \Str::slug($request->title);
         $post['user_id'] = Auth::user()->id;
         $post->classroom_id = $request->classroom_id;
+     
 
         //save image
         // if($request->hasFile('featured_file')){

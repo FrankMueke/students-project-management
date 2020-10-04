@@ -22,16 +22,17 @@
                             </select>
                         </div>
                         <div class=" textareacont">
-                            <label for="body">Message </label>
+                        <input type="file" id="myFileInput" name="featured_file"/>
+                            <label for="featured_file"> <img onclick="document.getElementById('myFileInput').click()" src="https://img.icons8.com/metro/32/000000/attach.png" alt="attach file"></label>
                            
-                            <textarea class="txtarea" name="body" type="text" id="textarea" cols="20" rows="2" class="form-control" placeholder="What's in your mind?">tdwdjkdegfeduiwekmnf</textarea>
+                            <textarea class="txtarea" name="body" type="text" id="textarea" cols="20" rows="2" class="form-control" placeholder="What's in your mind?"></textarea>
                             
                             <button type="submit" class="submit_btn"> <img src="https://img.icons8.com/small/32/000000/filled-sent.png"/></button>
                         </div>
-                        <div >
+                        <!-- <div >
                             <input type="file" id="myFileInput" name="featured_file"/>
-                            <label for="featured_file">Attach a file <img onclick="document.getElementById('myFileInput').click()" src="https://img.icons8.com/metro/26/000000/attach.png" alt="Download Icon"></label>
-                        </div>
+                            <label for="featured_file"> <img onclick="document.getElementById('myFileInput').click()" src="https://img.icons8.com/metro/26/000000/attach.png" alt="Download Icon"></label>
+                        </div> -->
                         
                     </form>
             </div>
@@ -48,7 +49,7 @@
                                 </div>
                                 <span><strong><a class="text-body" href='{{ route('users.index', $post->user->id) }}'> {{strtoupper($post->user->name)}}</a></strong> </span>
                                 On <span class="post-time">{{ date('M j, Y, h:ia', strtotime ($post->created_at)) }}</span>
-                                In <strong><a class="text-body" href="{{ route('classrooms.show', $classroom->id)}}">{{ $classroom->code}}. {{ strtoupper($classroom->name)}}</a></strong><br>
+                                In <strong><a class="text-body" href="{{ route('classrooms.show', $classroom->id)}}">{{ strtoupper($post->classroom->name)}} In {{$post->classroom->course->code}}{{$post->classroom->course->name}}</a></strong><br>
                             </div>
                             <div>
                                 <span><img src="https://img.icons8.com/metro/26/000000/download.png"/><a href="files/{{$post->featured_file}}" download="{{$post->featured_file}}">{{$post->featured_file}}</a></span>

@@ -27,12 +27,12 @@ class StudentController extends Controller
     public function create()
     {
         $supervisors = User::where('user_type', 'supervisor')->get();
-        $classrooms = DB::table('classrooms')->where('user_id', auth()->id())->get();
+        $courses = DB::table('courses')->where('user_id', auth()->id())->get();
         if(!\Gate::allows('isAdmin'))
         {
             abort(403, "Sorry, you cannot do these actions");
         }
-        return view('students.create')->withSupervisors($supervisors)->withClassrooms($classrooms);
+        return view('students.create')->withSupervisors($supervisors)->withClassrooms($courses);
     }
 
     /**
@@ -65,7 +65,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $classrooms= Classroom::where('user_id', auth()->id())->get();
+
+        return view('students.edit', compact('classrooms'));
     }
 
     /**

@@ -29,11 +29,10 @@
           @can('isAdmin')
           <a class="dropdown-item" href="{{ route('posts.index') }}">All Posts</a>
           <a class="dropdown-item" href="{{ route('users.create') }}">Register user</a>
-          
-          <a class="dropdown-item" href="{{ route('courses.index') }}">My Courses</a>
-          
           <a class="dropdown-item" href="{{ route('students.create') }}">Create Student</a>
           @endcan
+          <a class="dropdown-item" href="{{ route('courses.index') }}">My Courses</a>
+          
           <a class="dropdown-item" href="{{ route('users.edit', Auth::id())}}">Update Profile</a>
           
         <a class="dropdown-item" href="{{ route('logout') }}"

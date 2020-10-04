@@ -7,23 +7,38 @@ use App\Post;
 use App\Course;
 use App\User;
 use App\Classroom;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
-    // public function getIndex($id){
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    // public function getIndex(){
     //     $posts = Post::orderBy('created_at', 'desc')->paginate(10);
-    //     $user = User::find($id);
-    //     $classrooms = $user->classrooms()->get();
+    //     $user = Auth::user();
+    //     $classrooms = $user->classrooms->id->get();
+        
+    //     return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
+
+    // }
+    // public function getIndex(){
+    // $user= Auth::user()->id;
+    // $posts= Post::where('classroom_id', $user->classrooms->id)->get();
+    // $classrooms = $user->classrooms->id->get();
         
     //     return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
 
     // }
     public function getIndex(){
         $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        $courses = Course::where('user_id', auth()->id())->get();
         $classrooms= Classroom::where('user_id', auth()->id())->get();
-        
-        return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
+
+        return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms)->withCourses($courses);
 
     }
  
