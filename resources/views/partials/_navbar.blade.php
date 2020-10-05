@@ -11,6 +11,8 @@
       <ul class="navbar-nav mr-auto">
       <li class="nav-item {{ Request::is('/') ? "active" : "" }}">
           <a class="nav-link" href="/"><b>Home</b></a>
+          <li class="nav-item {{ Request::is('classrooms') ? "active" : "" }}">
+            <a class="nav-link" href="/classrooms"><b>My classes</b></a>
           <li class="nav-item {{ Request::is('about') ? "active" : "" }}">
           <a class="nav-link" href="/aboutus"><b>About</b></a>
         </li>
@@ -32,7 +34,9 @@
           <a class="dropdown-item" href="{{ route('students.create') }}">Create Student</a>
           @endcan
           <a class="dropdown-item" href="{{ route('courses.index') }}">My Courses</a>
-          
+          @can('isSupervisor')
+          <a class="dropdown-item" href="{{ route('users.index')}}"> My students</a>
+          @endcan
           <a class="dropdown-item" href="{{ route('users.edit', Auth::id())}}">Update Profile</a>
           
         <a class="dropdown-item" href="{{ route('logout') }}"

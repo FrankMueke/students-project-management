@@ -27,7 +27,7 @@ class ClassroomController extends Controller
     public function index()
     {
         $course = DB::table('courses')->get();
-        $classrooms = DB::table('classrooms')->get();
+        $classrooms = DB::table('classrooms')->where('user_id',auth()->id())->get();
         return view('classrooms.index')->withClassrooms($classrooms)->withCourses($course);
     }
 

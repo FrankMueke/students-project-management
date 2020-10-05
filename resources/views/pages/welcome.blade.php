@@ -47,7 +47,7 @@
                                 <div class="post-upic">
                                 <img src="uploads/avatars/{{ $post->user->avatar}}" class="author-image ">
                                 </div>
-                                <span><strong><a class="text-body" href='{{ route('users.index', $post->user->id) }}'> {{strtoupper($post->user->name)}}</a></strong> </span>
+                                <span><strong><a class="text-body" href='{{ route('users.author', $post->user->id) }}'> {{strtoupper($post->user->name)}}</a></strong> </span>
                                 On <span class="post-time">{{ date('M j, Y, h:ia', strtotime ($post->created_at)) }}</span>
                                 In <strong><a class="text-body" href="{{ route('classrooms.show', $classroom->id)}}">{{ strtoupper($post->classroom->name)}} In {{$post->classroom->course->code}}{{$post->classroom->course->name}}</a></strong><br>
                             </div>

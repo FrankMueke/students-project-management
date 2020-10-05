@@ -16,8 +16,8 @@
                     <td>{{$classroom->id}}</td>
                     <td>{{$classroom->name}}</td>
                     <td><a href="{{ route('classrooms.show', $classroom->id)}}">{{ $classroom->name}} </a></td>
-                    <td><input type="text" value="{{ $classroom->classcode}}" id="classcode"></td>
-                    <td><button onclick="copyText()">Copy</button></td>
+                    <!-- <td><input type="text" value="{{ $classroom->classcode}}" id="classcode"></td>
+                    <td><button onclick="copyText()">Copy</button></td> -->
                 </tr>
                 @endforeach
             </tbody>

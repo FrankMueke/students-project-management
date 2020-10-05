@@ -24,14 +24,20 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function author($id)
     {
 
         $user = User::find($id);
         // $posts=Post::where('user_id', $user->id);
         $posts = $user->posts()->get();
 
-        return view('users.index')->withPosts($posts)->withUser($user);
+        return view('users.author')->withPosts($posts)->withUser($user);
+    }
+    public function index()
+    {
+        $users = User::where('supervisor_id',auth()->id())->get();
+
+        return view('users.index')->withUsers($users);
     }
 
     /**
@@ -97,10 +103,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        $users = User::where('supervisor_id',auth()->id())->get();
   
         $posts = Post::where('user_id', Auth::id())->get();
         
-        return view('users.show')->withUser($user)->withPosts($posts);
+        return view('users.show')->withUser($user)->withPosts($posts)->withUsers($users);
     }
 
     /**

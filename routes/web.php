@@ -16,8 +16,8 @@ Route::post('comments/{post_id}', ['uses' => 'CommentController@store', 'as' => 
 Route::delete('comments/{id}', ['uses' => 'CommentController@destroy', 'as' => 'comments.destroy']);
 //profile and users
 // Route::post('createstudent', 'UserController@createstudent')->name('createstudent');
-Route::get('author/{id}', 'UserController@index')->name('users.index');
-Route::resource('users', 'UserController')->except('index');
+Route::get('author/{id}', 'UserController@author')->name('users.author');
+Route::resource('users', 'UserController');
 
 //courses
 Route::resource('courses', 'CourseController')->except('create');

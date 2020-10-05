@@ -14,9 +14,10 @@ class AddCourseIdToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('course_id')->after('user_id');
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-         
+            $table->unsignedBigInteger('course_id');
+
+            $table->foreign('course_id')->references('id')->on('courses')->cascadeOnDelete();
+            //
         });
     }
 
@@ -28,7 +29,7 @@ class AddCourseIdToPosts extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('course_id');
+            $table->dropIfExists('course_id');
         });
     }
 }
