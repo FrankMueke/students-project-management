@@ -22,11 +22,12 @@ class PostController extends Controller
      */
     public function index()
     {
+        
         $posts = Post::all();
-        $courses = Course::all();
+        $course = Course::all();
 
         // return view('posts.index', compact('posts'));
-        return view('posts.index', compact('posts','courses'));
+        return view('posts.index', compact('posts','course'));
     }
 
     /**
