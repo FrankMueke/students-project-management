@@ -16,7 +16,7 @@
                         <h4 class="text-center heading">{{ $user->name }}</h4>
                         <h4 class="text-center heading"> {{ $user->email }} </h4>
                         <h4 class="text-center heading">{{ $user->user_type }}</h4>
-                        <h4 class="text-center heading"> {{ $user->email }} </h4>
+                        
                     </div>
                 </div>
                 
@@ -59,12 +59,12 @@
                         <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
                     <td>
                         @if(Auth::id() !== $post->user_id)
-                        <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-outline-primary  btn-block btn-sm">View</a>    
+                        <a href="{{ url('posts',$post->id) }}" class="btn btn-outline-primary  btn-block btn-sm">View</a>    
                         @else
                         <a href="/posts/{{$post->id}}" class="btn btn-outline-primary btn-block btn-sm">View</a>
                         @endif
                          
-                        {{-- <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary">View</a> --}}
+                        {{-- <a href="{{ url('posts.show',$post->id) }}" class="btn btn-primary">View</a> --}}
                         
                         {{-- <a href="{{route('posts.edit', $post->id)}}" class="btn btn-dark btn-sm">Edit</a> --}}
                         @if(Auth::id() == $post->user_id)

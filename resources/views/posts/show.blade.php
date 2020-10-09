@@ -4,7 +4,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-6 offset-3">
-    <span> <strong><a href='{{ route('users.index', $post->user->id) }}'> {{$post->user->name}}<strong></a> 
+    <span> <strong><a href='{{ route('users.author', $post->user->id) }}'> {{$post->user->name}}<strong></a> 
     </span>
     On <span class="post-by">{{ date('M j, Y, h:ia', strtotime ($post->created_at)) }}</span>
     <br>

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-6 offset-2">
         <h3>Welcome to {{$classroom->name}}</h3>
     </div>
     
@@ -19,7 +19,7 @@
     @endcan
 </div>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 offset-2">
     <img src="https://img.icons8.com/ios-filled/50/000000/activity-feed-2.png"/> Posts in {{$classroom->name}}
     @if(count($posts) > 0)
                     @foreach($posts as $post)

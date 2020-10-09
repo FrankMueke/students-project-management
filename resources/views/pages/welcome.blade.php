@@ -57,9 +57,20 @@
                             <p class="lead"><a class="text-body"  style="text-decoration: none;" href="{{ route('posts.show',$post->id) }}"> {{ $post->body }}</a>
                             </p>
                             <!-- <hr class="my-4"> -->
-                            <div class="center">
+                            <!-- <div class="center">
                             <img src="https://img.icons8.com/material-rounded/24/000000/topic.png"/>
-                            </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-md-4">
+                                <a href="#"><img src="https://img.icons8.com/fluent-systems-filled/24/000000/facebook-like.png"/></a>
+                                </div>
+                                <div class="col-md-4">
+                                <a href="{{ route('posts.show', $post->id)}}"><img src="https://img.icons8.com/ios-filled/24/000000/topic.png"/></a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="#"><img src="https://img.icons8.com/android/24/000000/share.png"/></a>
+                                </div>
+                           </div>
                         </div>
                     @endforeach
                     @else

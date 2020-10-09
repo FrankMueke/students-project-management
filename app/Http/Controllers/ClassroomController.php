@@ -103,7 +103,11 @@ class ClassroomController extends Controller
      */
     public function edit($id)
     {
-        //
+        $classroom = Classroom::find($id);
+        $courses = Course::where('user_id', auth()->id())->get();
+        
+        // return the view and pass in the var we previously created
+        return view('classrooms.edit')->withClassroom($classroom)->withCourses($courses);
     }
 
     /**
@@ -115,7 +119,20 @@ class ClassroomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, array(
+            'name' => 'required',
+            'course_id' => 'required'
+        
+        ));
+        $classroom = Classroom::find($id);
+        $classroom->name = $request->input('name');
+        $classroom->course_id= $request->input('course_id');
+
+        $classroom->save();
+
+         $request->Session()->flash('success', 'Class saved sucessfully');
+
+        return redirect()->route('classrooms.show', $classroom->id);
     }
 
     /**
