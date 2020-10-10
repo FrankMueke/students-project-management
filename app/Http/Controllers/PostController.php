@@ -195,12 +195,18 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        $post=Post::find($id);
+        $post = Post::find($id);
+    
+        Storage::delete($post->featured_file);
 
         $post->delete();
 
-        return redirect()->route('posts.index');
+        $request->Session()->flash('success', 'The post was Deleted successfully!');
+
+        return redirect()->route('users.author',auth()->id());
+    
     }
 }
+

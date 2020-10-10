@@ -4,10 +4,10 @@
     
 
           <div class="row">
-              <div class="col-md-12">
-                  <h1>Contact Us</h1>
+              <div class="col-md-8 offset-2">
+                  <h1 class="titles">Contact Us</h1>
                   <hr>
-              <form action="{{ url('contact') }}" method="POST">
+              <form action="{{ url('contactus') }}" method="POST">
                 @csrf
                       <div class="form-group">
                           <label name="email">Email:</label>

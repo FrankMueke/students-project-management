@@ -28,6 +28,7 @@
          Hello {{Auth::user()->name}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('users.author', Auth::id())}}">My Posts</a>
           @can('isAdmin')
           <a class="dropdown-item" href="{{ route('posts.index') }}">All Posts</a>
           <a class="dropdown-item" href="{{ route('users.create') }}">Register user</a>

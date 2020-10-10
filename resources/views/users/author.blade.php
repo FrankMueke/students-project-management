@@ -63,12 +63,14 @@
                         @else
                         <a href="/posts/{{$post->id}}" class="btn btn-outline-primary btn-block btn-sm">View</a>
                         @endif
-                         
-                        {{-- <a href="{{ url('posts.show',$post->id) }}" class="btn btn-primary">View</a> --}}
                         
-                        {{-- <a href="{{route('posts.edit', $post->id)}}" class="btn btn-dark btn-sm">Edit</a> --}}
                         @if(Auth::id() == $post->user_id)
                             <a href="{{ action('PostController@edit', [$post->id]) }} " class="btn btn-outline-dark btn-block btn-sm">Edit</a>
+                            <form action="{{ route('posts.destroy', $post->id)}}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger btn-block">Delete Post</button>
+                            </form>
                         @endif
                     </td>
                     </tr>

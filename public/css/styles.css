@@ -143,3 +143,13 @@ a {
 #myFileInput {
     display: none;
 }
+
+.titles {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.bodyfont {
+    font-family: 'Playfair Display', serif;
+}
+
+.commentcountcolor {}
