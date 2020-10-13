@@ -21,7 +21,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="course">Course</label>
+                <label for="course">Assign Course</label>
                 <select name="course_id" id="course_id">
                 @foreach($courses as $course)
                     <option value="{{$course->id}}">{{$course->name}}</option>
