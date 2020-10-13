@@ -9,6 +9,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//password reset
+Route::get('password/reset/{token?}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 //posts
 Route::resource('posts','PostController');
 //comments
@@ -33,3 +35,9 @@ Route::post('classrooms/{course_id}', 'ClassroomController@store')->name('classr
 Route::resource('students', 'StudentController');
 //supervisor
 Route::resource('supervisors', 'SupervisorController');
+//video chat
+Route::get('rooms', "VideoRoomsController@index");
+Route::prefix('room')->middleware('auth')->group(function() {
+   Route::get('join/{roomName}', 'VideoRoomsController@joinRoom');
+   Route::post('create', 'VideoRoomsController@createRoom');
+});

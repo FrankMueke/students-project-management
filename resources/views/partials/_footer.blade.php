@@ -1,6 +1,7 @@
 
     <hr>
-    <p class="text-center">Copyright Students Project Management. All rights reserved</p>
+    
+    <p class="text-center"> <img src= "{{ asset('images/spmlogo.jpg') }}" height="40" alt="SPM logo"><strong> Students Project Management. All rights reserved</strong></p>
 
 
 

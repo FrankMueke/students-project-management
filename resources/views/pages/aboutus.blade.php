@@ -3,7 +3,7 @@
 @section('content')
 
           <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-8 offset-2">
                   <h1>About Us</h1>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                       ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 

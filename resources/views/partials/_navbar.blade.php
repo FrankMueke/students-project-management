@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg  navbar navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="#">
-    <img src= "{{ asset('images/logo2.png') }}" height="10" alt="Logo here">
+    <img src= "{{ asset('images/spmlogo.jpg') }}" height="40" alt="SPM logo">
   </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,14 +10,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
       <li class="nav-item {{ Request::is('/') ? "active" : "" }}">
-          <a class="nav-link" href="/"><b>Home</b></a>
+          <a class="nav-link" href="/"><b><img src="https://img.icons8.com/fluent/24/000000/home-page.png"/>Home</b></a>
           <li class="nav-item {{ Request::is('classrooms') ? "active" : "" }}">
-            <a class="nav-link" href="/classrooms"><b>My classes</b></a>
+            <a class="nav-link" href="/classrooms"><b><img src="https://img.icons8.com/doodle/24/000000/google-classroom.png"/>My classes</b></a>
           <li class="nav-item {{ Request::is('about') ? "active" : "" }}">
-          <a class="nav-link" href="/aboutus"><b>About</b></a>
+          <a class="nav-link" href="/aboutus"><b><img src="https://img.icons8.com/android/24/000000/about.png"/>About</b></a>
         </li>
         <li class="nav-item {{ Request::is('contact') ? "active" : "" }}">
-          <a class="nav-link" href="/contactus"><b>Contact</b></a>
+          <a class="nav-link" href="/contactus"><b><img src="https://img.icons8.com/ultraviolet/24/000000/new-contact.png"/>Contact</b></a>
         </li>
         </li>
       </ul>
