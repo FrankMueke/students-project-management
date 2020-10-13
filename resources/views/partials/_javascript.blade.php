@@ -7,4 +7,5 @@
 
     -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet"> 
+    <script src="https://media.twiliocdn.com/sdk/js/chat/v3.3/twilio-chat.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>

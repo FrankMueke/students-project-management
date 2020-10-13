@@ -49,7 +49,7 @@
                                 </div>
                                 <span><strong><a class="text-body titles" href='{{ route('users.author', $post->user->id) }}'> {{strtoupper($post->user->name)}}</a></strong> </span>
                                 On <span class="post-time">{{ date('M j, Y, h:ia', strtotime ($post->created_at)) }}</span>
-                                In <strong><a class="text-body titles" href="{{ route('classrooms.show', $classroom->id)}}">{{ strtoupper($post->classroom->name)}} In {{$post->classroom->course->code}}{{$post->classroom->course->name}}</a></strong><br>
+                                In <strong><a class="text-body titles" href="{{ route('classrooms.show', $post->classroom->id)}}">{{ strtoupper($post->classroom->name)}} In {{$post->classroom->course->code}}{{$post->classroom->course->name}}</a></strong><br>
                             </div>
                             <div>
                                 <span><a href="files/{{$post->featured_file}}" download="{{$post->featured_file}}">{{$post->featured_file}}</a></span>

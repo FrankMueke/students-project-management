@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classroom;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // public function __construct()
     // {
     //     return $this->middleware('auth');
@@ -85,7 +90,8 @@ class UserController extends Controller
         $user->supervisor_id = $request->supervisor_id;
         $user->classroom_id = $request->classroom_id;
         $user->course_id = $request->course_id;
-         $user->password = Hash::make($request->password);
+        $user->department = $request->department;
+        $user->password = Hash::make($request->password);
 
         $user->save();
         $request->session()->flash('success','User created sucessfully');
@@ -119,8 +125,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $classrooms = Classroom::WHERE('user_id', auth()->id())->get();
 
-        return view('users.edit')->withUser($user);
+        return view('users.edit')->withUser($user)->withClassrooms($classrooms);
     }
 
     /**
@@ -138,7 +145,6 @@ class UserController extends Controller
             'name'=> 'required',
             'email' => 'required|email',
             'avatar' => 'sometimes|image',
-            'classcode' => 'sometimes',
             'university' => 'sometimes',
             'department'=> 'sometimes',
             'yos'=> 'sometimes'
@@ -146,10 +152,10 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->classcode = $request->classcode;
         $user->university = $request->university;
         $user->department = $request->department;
         $user->yos = $request->yos;
+        $user->classroom_id = $request->classroom_id;
 
         if($request->hasFile('avatar'))
         {

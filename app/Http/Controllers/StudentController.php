@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -32,7 +36,7 @@ class StudentController extends Controller
         {
             abort(403, "Sorry, you cannot do these actions");
         }
-        return view('students.create')->withSupervisors($supervisors)->withClassrooms($courses);
+        return view('students.create')->withSupervisors($supervisors)->withCourses($courses);
     }
 
     /**

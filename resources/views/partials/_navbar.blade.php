@@ -31,15 +31,17 @@
         <a class="dropdown-item" href="{{ route('users.author', Auth::id())}}">My Posts</a>
           @can('isAdmin')
           <a class="dropdown-item" href="{{ route('posts.index') }}">All Posts</a>
-          <a class="dropdown-item" href="{{ route('users.create') }}">Register user</a>
+          <a class="dropdown-item" href="{{ route('users.create') }}">Register SuperUser</a>
           <a class="dropdown-item" href="{{ route('students.create') }}">Create Student</a>
           @endcan
+          @cannot('isStudent')
           <a class="dropdown-item" href="{{ route('courses.index') }}">My Courses</a>
+          @endcannot
           @can('isSupervisor')
           <a class="dropdown-item" href="{{ route('users.index')}}"> My students</a>
           @endcan
           <a class="dropdown-item" href="{{ route('users.edit', Auth::id())}}">Update Profile</a>
-          
+          <a class="nav-link" href="{{ route('messages.index') }}">Messages</a>
         <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

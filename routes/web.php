@@ -21,6 +21,7 @@ Route::delete('comments/{id}', ['uses' => 'CommentController@destroy', 'as' => '
 Route::get('author/{id}', 'UserController@author')->name('users.author');
 Route::resource('users', 'UserController');
 
+
 //courses
 Route::resource('courses', 'CourseController')->except('create');
 //pages
@@ -36,8 +37,13 @@ Route::resource('students', 'StudentController');
 //supervisor
 Route::resource('supervisors', 'SupervisorController');
 //video chat
-Route::get('rooms', "VideoRoomsController@index");
-Route::prefix('room')->middleware('auth')->group(function() {
-   Route::get('join/{roomName}', 'VideoRoomsController@joinRoom');
-   Route::post('create', 'VideoRoomsController@createRoom');
-});
+// Route::get('rooms', "VideoRoomsController@index");
+// Route::prefix('room')->middleware('auth')->group(function() {
+//    Route::get('join/{roomName}', 'VideoRoomsController@joinRoom');
+//    Route::post('create', 'VideoRoomsController@createRoom');
+// });
+//messages
+Route::get('/messages', 'MessageController@index')->name('messages.index');
+Route::get('/messages/{ids}', 'MessageController@chat')->name('messages.chat');
+//Generating the Access Token
+Route::post('/token', 'TokenController@generate');

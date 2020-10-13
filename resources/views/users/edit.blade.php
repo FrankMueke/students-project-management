@@ -29,6 +29,7 @@
                 <label for="department">Department</label>
                 <input type="text" name="department" value="{{$user->department}}" class="form-control">
             </div>
+            @can('isStudent')
             <div class="form-group">
                 <label for="yos">Year of study</label>
                 <input type="text" name="yos" value="{{$user->yos}}" class="form-control">
@@ -39,10 +40,15 @@
                     <option value="5.2">5.2</option>
                 </select>
             </div>
-            @can('isStudent')
+            @endcan
+            @can('isSupervisor')
             <div class="form-group">
-                <label for="classcode">Enter code to join</label>
-                <input type="text" name="classcode" class="form-control">
+                <label for="classroom">Add Classroom</label>
+                <select name="classroom_id" id="classroom_id">
+                @foreach($classrooms as $classroom)
+                    <option value="{{$classroom->id}}">{{$classroom->name}}</option>
+                @endforeach
+                </select>
             </div>
             @endcan
            <button type="submit" class="pull-right btn btn-sm btn-primary">Update Profile</button>

@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', '|Create SuperUser')
 @section('content')
 <div class="row">
     <div class="col-md-4 offset-4">
@@ -11,7 +12,11 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" class="form-control">
+                <input type="email" name="email" class="form-control" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" name="department" class="form-control" autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="user_type">User Type</label>

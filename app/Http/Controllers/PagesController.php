@@ -34,9 +34,10 @@ class PagesController extends Controller
 
     // }
     public function getIndex(){
+        $user= Auth::user()->id;
         $posts = Post::orderBy('created_at', 'desc')->paginate(10);
         $courses = Course::where('user_id', auth()->id())->get();
-        $classrooms= Classroom::where('user_id', auth()->id())->get();
+        $classrooms= Classroom::get();
 
         return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms)->withCourses($courses);
 
