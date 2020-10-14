@@ -134,7 +134,9 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        $classrooms = Classroom::where('user_id', auth()->id())->get();
+        // $classrooms = Classroom::where('user_id', auth()->id())->get();
+        $classrooms = Classroom::get();
+        
         
         // return the view and pass in the var we previously created
         return view('posts.edit')->withPost($post)->withClassrooms($classrooms);

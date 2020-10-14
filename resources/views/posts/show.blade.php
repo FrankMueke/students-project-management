@@ -4,11 +4,11 @@
 @section('content')
 <div class="row">
     <div class="col-md-6 offset-3">
-    <span> <strong><a href='{{ route('users.author', $post->user->id) }}'> {{$post->user->name}}<strong></a> 
+    <span class="titles"> <strong><a href='{{ route('users.author', $post->user->id) }}'> {{$post->user->name}}<strong></a> 
     </span>
     On <span class="post-by">{{ date('M j, Y, h:ia', strtotime ($post->created_at)) }}</span>
     <br>
-        <p class="lead">{{ $post->body}}</p>
+        <p class="lead bodyfont">{{ $post->body}}</p>
         <hr>
     <div>
     <div class="col-md-8">

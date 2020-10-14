@@ -12,14 +12,14 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-4 offset-4">
+                    <div class="col-md-4 offset-4 titles">
                     
                         <h4 class="text-center heading">{{ $user->name }}</h4>
                         <h4 class="text-center heading"> {{ $user->email }} </h4>
                         <h4 class="text-center heading">{{ $user->user_type }}</h4>
-                        
-                        <button type="submit" class="btn btn-outline-primary text-center"><a href="{{ route('users.edit', $user->id)}}">Add to my class</a></button>
-                        
+                        @can('isSupervisor')
+                        <button type="submit" class="btn btn-outline-primary btn-block btn-sm"><a href="{{ route('users.edit', $user->id)}}">Add to my class</a></button>
+                        @endcan
                     </div>
                 </div>
                 

@@ -9,6 +9,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Classroom</th>
+                    <th>RegNO</th>
               
                 </thead> 
     
@@ -20,6 +21,7 @@
                         <th>{{ $user->id }}</th>
                         <td><a href="{{route('users.author', $user->id)}}">{{$user->name}}</a></td>
                         <td>{{ $user->classroom_id}}</td>
+                        <td>{{ $user->regno}}</td>
                        
                     </tr>
                     @endforeach

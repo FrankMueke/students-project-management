@@ -91,6 +91,7 @@ class UserController extends Controller
         $user->classroom_id = $request->classroom_id;
         $user->course_id = $request->course_id;
         $user->department = $request->department;
+        $user->regno = $request->regno;
         $user->password = Hash::make($request->password);
 
         $user->save();
@@ -156,6 +157,7 @@ class UserController extends Controller
         $user->department = $request->department;
         $user->yos = $request->yos;
         $user->classroom_id = $request->classroom_id;
+        $user->regno = $request->regno;
 
         if($request->hasFile('avatar'))
         {

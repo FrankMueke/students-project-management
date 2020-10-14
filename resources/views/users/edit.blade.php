@@ -40,6 +40,10 @@
                     <option value="5.2">5.2</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="regno">Registration Number</label>
+                <input type="regno" name="regno" value="{{$user->regno}}" class="form-control">
+            </div>
             @endcan
             @can('isSupervisor')
             <div class="form-group">

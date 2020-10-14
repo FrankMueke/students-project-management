@@ -20,6 +20,14 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="regno">Registration Number</label>
+                <input type="text" name="regno" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" name="department" class="form-control">
+            </div>
+            <div class="form-group">
                 <label for="supervisor">Supervisor</label>
                 <select name="supervisor_id" id="supervisor">
                 @foreach($supervisors as $supervisor)
