@@ -25,7 +25,7 @@ Route::resource('users', 'UserController');
 //courses
 Route::resource('courses', 'CourseController')->except('create');
 //pages
-Route::get('/', 'PagesController@getIndex');
+// Route::get('/', 'PagesController@getIndex');
 Route::get('aboutus', 'PagesController@getAbout');
 Route::get('contactus', ['uses'=>'PagesController@getContact', 'as'=>'home']);
 Route::post('contactus', 'PagesController@postContact');
@@ -47,3 +47,13 @@ Route::get('/messages', 'MessageController@index')->name('messages.index');
 Route::get('/messages/{ids}', 'MessageController@chat')->name('messages.chat');
 //Generating the Access Token
 Route::post('/token', 'TokenController@generate');
+
+//zoomintegration
+
+Route::get('/', function () {
+    return view('app');
+});
+
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any','.*');
