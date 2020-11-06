@@ -28,7 +28,7 @@ const routes = [{
         component: Join
     },
     {
-        path: '/meeting',
+        path: '/',
         name: 'meeting',
         component: Meeting
     }

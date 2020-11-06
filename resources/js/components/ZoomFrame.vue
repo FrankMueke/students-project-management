@@ -22,7 +22,7 @@ ZoomMtg.prepareJssdk();
 
 var API_KEY = 'yjqkQCinSuClDvm_mqRzrw';
 
-var API_SECRET = '33Oxz0XtEPHXdDWjJZbdN8Wmy2j34eT3AK98';
+var API_SECRET = 'dcl0l2oejfbWgTqhQ2E3TpDPXMN53VaWKORN';
 
 export default {
   name: "ZoomFrame",
