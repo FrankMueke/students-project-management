@@ -1,8 +1,8 @@
 <template>
   <div class="iframe-container">
     <meta charset="utf-8">
-    <link type="text/css" rel="stylesheet" href="https://source.zoom.us/1.7.10/css/bootstrap.css" />
-    <link type="text/css" rel="stylesheet" href="https://source.zoom.us/1.7.10/css/react-select.css" />
+    <link type="text/css" rel="stylesheet" href="https://source.zoom.us/1.7.9/css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="https://source.zoom.us/1.7.9/css/react-select.css" />
 
     <meta name="format-detection" content="telephone=no">
   </div>

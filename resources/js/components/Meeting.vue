@@ -1,6 +1,6 @@
 <template>
   <div class="meeting">
-    <div class="container-zoom">
+    <div class="col-md-8">
       <ZoomFrame :nickname="nickname" :meetingId="meetingId" :password="password"/>
     </div>
   </div>
@@ -13,9 +13,9 @@ export default {
   name: "app",
   data: function () {
       return {
-          nickname: '',
-          meetingId: '',
-          password: '',
+          nickname: '12345678',
+          meetingId: '7769668301',
+          password: '3kRPJ9',
       }
   },
   components: {
