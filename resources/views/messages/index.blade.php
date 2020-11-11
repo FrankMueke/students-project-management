@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', '|Messages')
 @section('content')
   <div class="container">
     <div class="row">

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "786e43ee18685013202a53ebc3512414",
+    "content-hash": "1857f18a2d609f108be4bd93a993ab72",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4707,16 +4707,16 @@
         },
         {
             "name": "twilio/sdk",
-            "version": "6.10.4",
+            "version": "6.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twilio/twilio-php.git",
-                "reference": "05979210315ad66e684fe600acb1640fee293aa7"
+                "reference": "8649f40db24f074a66e3f762b11079be31cfdb8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/05979210315ad66e684fe600acb1640fee293aa7",
-                "reference": "05979210315ad66e684fe600acb1640fee293aa7",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/8649f40db24f074a66e3f762b11079be31cfdb8b",
+                "reference": "8649f40db24f074a66e3f762b11079be31cfdb8b",
                 "shasum": ""
             },
             "require": {
@@ -4753,7 +4753,11 @@
                 "sms",
                 "twilio"
             ],
-            "time": "2020-09-28T21:48:54+00:00"
+            "support": {
+                "issues": "https://github.com/twilio/twilio-php/issues",
+                "source": "https://github.com/twilio/twilio-php/tree/6.12.0"
+            },
+            "time": "2020-11-05T21:49:26+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -6970,5 +6974,5 @@
         "php": "^7.2.5"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
