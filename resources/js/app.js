@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 
+Vue.component('chat-component', require('./components/ChatComponent.vue').default)
 
 window.Vue = require('vue');
 

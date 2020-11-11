@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+//Generating the Access Token
+Route::post('/token', 'TokenController@generate');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
