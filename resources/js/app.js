@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap')
+require('./bootstrap');
 
-window.Vue = require('vue')
+window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -22,7 +22,7 @@ window.Vue = require('vue')
 Vue.component(
     'chat-component',
     require('./components/ChatComponent.vue').default
-)
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,37 +30,37 @@ Vue.component(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-        el: '#app'
-    })
-    // import VueRouter from 'vue-router';
-    // Vue.use(VueRouter);
-
-// import VueAxios from 'vue-axios';
-// import axios from 'axios';
-
-// import App from './App.vue';
-// Vue.use(VueAxios, axios);
-
-// import Join from './components/Join';
-// import Meeting from './components/Meeting';
-
-
-// const routes = [{
-//         path: '/join',
-//         name: 'join',
-//         component: Join
-//     },
-//     {
-//         path: '/meeting',
-//         name: 'meeting',
-//         component: Meeting
-//     }
-// ];
-
-// const router = new VueRouter({
-//     mode: 'history',
-//     routes: routes
+// const app = new Vue({
+//     el: '#app',
 // });
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
 
-// const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+
+import App from './App.vue';
+Vue.use(VueAxios, axios);
+
+import Join from './components/Join';
+import Meeting from './components/Meeting';
+
+
+const routes = [{
+        path: '/join',
+        name: 'join',
+        component: Join
+    },
+    {
+        path: '/meeting',
+        name: 'meeting',
+        component: Meeting
+    }
+];
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: routes
+});
+
+const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');

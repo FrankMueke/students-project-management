@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClassroomsTable extends Migration
+class AddCourseIdToClassrooms extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,9 @@ class CreateClassroomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('classrooms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('course_id');
+        Schema::table('classrooms', function (Blueprint $table) {
+            $table->unsignedBigInteger('course_id')->after('name')->nullable();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            
-            // $table->unsignedBigInteger('user_id');
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
@@ -32,6 +26,8 @@ class CreateClassroomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classrooms');
+        Schema::table('classrooms', function (Blueprint $table) {
+            $table->dropColumn('course_id');
+        });
     }
 }

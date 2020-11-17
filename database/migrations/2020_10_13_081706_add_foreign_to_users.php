@@ -14,14 +14,15 @@ class AddForeignToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('course_id')->after('email');
+            $table->unsignedBigInteger('course_id')->after('email')->nullable();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
 
-            $table->unsignedBigInteger('classroom_id')->after('course_id');
-            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->nullable();
+            $table->unsignedBigInteger('classroom_id')->after('course_id')->nullable();
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
 
-            $table->unsignedBigInteger('supervisor_id')->after('classroom_id');
-            $table->foreign('supervisor_id')->references('id')->on('users')->onDelete('cascade')->nullable();
+            $table->unsignedBigInteger('supervisor_id')->after('classroom_id')->nullable();
+            $table->foreign('supervisor_id')->references('id')->on('users')->onDelete('cascade');
+            
 
         });
     }

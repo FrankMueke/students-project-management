@@ -10,17 +10,13 @@ class Classroom extends Model
     // {
     //     return $this->belongsToMany('App\User', 'classroom_user', 'classroom_id','user_id');
     // }
-    public function user()
+    public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->hasMany('App\User');
     }
     public function posts()
     {
         return $this->hasMany('App\Post');
-    }
-    public function comments()
-    {
-        return $this->hasMany('App\Comment');
     }
     public function course()
     {

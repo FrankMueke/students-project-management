@@ -19,9 +19,9 @@ class Post extends Model
     {
         return $this->hasMany('App\Comment');
     }
-    public function courses()
+    public function course()
     {
-        return $this->belongsTo('Course');
+        return $this->belongsTo('App\Course');
     }
     public function classroom()
     {

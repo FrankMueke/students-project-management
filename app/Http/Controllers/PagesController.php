@@ -25,23 +25,23 @@ class PagesController extends Controller
     //     return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
 
     // }
-    // public function getIndex(){
-    // $user= Auth::user()->id;
-    // $posts= Post::where('classroom_id', $user->classrooms->id)->get();
-    // $classrooms = $user->classrooms->id->get();
-        
-    //     return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
-
-    // }
     public function getIndex(){
-        $user= Auth::user()->id;
-        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
-        $courses = Course::where('user_id', auth()->id())->get();
-        $classrooms= Classroom::get();
-
-        return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms)->withCourses($courses);
+    $user= Auth::user()->id;
+    $posts= Post::where('classroom_id', $user->classroom->id)->get();
+    $classrooms = $user->classroom->id->get();
+        
+        return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
 
     }
+    // public function getIndex(){
+    //     $user= Auth::user()->id;
+    //     $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+    //     $courses = Course::where('user_id', auth()->id())->get();
+    //     $classrooms= Classroom::get();
+
+    //     return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms)->withCourses($courses);
+
+    // }
  
     public function getAbout(){
         return view('pages.aboutus');
