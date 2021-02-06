@@ -12,7 +12,7 @@ class Classroom extends Model
     // }
     public function users()
     {
-        return $this->hasMany('App\User');
+        return $this->belongsToMany('App\User', 'classroom_user', 'classroom_id', 'user_id');
     }
     public function posts()
     {

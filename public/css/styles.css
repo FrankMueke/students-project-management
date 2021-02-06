@@ -153,3 +153,8 @@ a {
 }
 
 .commentcountcolor {}
+
+#zmmtg-root {
+    background-color: transparent!important;
+    position: relative!important;
+}

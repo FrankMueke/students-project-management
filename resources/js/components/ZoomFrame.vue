@@ -14,7 +14,7 @@ console.log("checkSystemRequirements");
 console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
 
 // CDN version default
-ZoomMtg.setZoomJSLib('https://source.zoom.us/1.7.10/lib', '/av'); 
+ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av'); 
 
 ZoomMtg.preLoadWasm();
 

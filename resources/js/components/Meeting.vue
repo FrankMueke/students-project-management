@@ -13,9 +13,9 @@ export default {
   name: "app",
   data: function () {
       return {
-          nickname: '12345678',
-          meetingId: '7769668301',
-          password: '3kRPJ9',
+          nickname: '',
+          meetingId: '',
+          password: '',
       }
   },
   components: {

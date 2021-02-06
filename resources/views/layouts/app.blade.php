@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'StudentsPM') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,6 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+    
+    #zmmtg-root{
+      background-color:transparent!important;
+      position:relative!important;
+    }
+  </style>
 </head>
 <body>
     <div id="app">
@@ -76,5 +83,14 @@
             @yield('content')
         </main>
     </div>
+    <noscript>
+    <strong>We're sorry but poc doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+</body>
 </body>
 </html>

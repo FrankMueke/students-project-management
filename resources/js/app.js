@@ -30,9 +30,7 @@ Vue.component(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// const app = new Vue({
-//     el: '#app',
-// });
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
@@ -64,3 +62,6 @@ const router = new VueRouter({
 });
 
 const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+// const app = new Vue({
+//     el: '#app',
+// });

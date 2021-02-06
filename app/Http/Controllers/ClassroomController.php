@@ -66,7 +66,7 @@ class ClassroomController extends Controller
         $classroom = new Classroom();
         
         $classroom->name = $request->name;
-        $classroom['user_id'] = Auth::user()->id;
+        // $classroom['user_id'] = Auth::user()->id;
         // $classroom->user()->associate($request->user());
         // $classroom->classcode = Str::random(6);
         $classroom->course()->associate($course);
