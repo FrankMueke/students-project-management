@@ -88,9 +88,10 @@
       continue.</strong>
   </noscript>
 
-  <div id="app"></div>
+  <!-- <div id="app"></div> -->
   <!-- built files will be auto injected -->
-  <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
-</body>
+
+  <script src="https://media.twiliocdn.com/sdk/js/chat/v4.0/twilio-chat.min.js"></script>
+
 </body>
 </html>

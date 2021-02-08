@@ -1,6 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('title', '|Chat box')
 @section('content')
+
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -8,7 +9,10 @@
             </div>
             <div class="col-md-9">
                 <chat-component :auth-user="{{ auth()->user() }}" :other-user="{{ $otherUser }}"></chat-component>
+               
             </div>
+           
         </div>
+ 
     </div>
 @endsection
