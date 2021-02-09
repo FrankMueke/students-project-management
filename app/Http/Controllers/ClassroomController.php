@@ -73,6 +73,7 @@ class ClassroomController extends Controller
 
 
         $classroom->save();
+        $classroom->users()->attach($request->user);
 
         $request = Session()->flash('success', 'Class created successfully');
 

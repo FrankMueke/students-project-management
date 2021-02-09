@@ -126,7 +126,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        // $classrooms = Classroom::WHERE('user_id', auth()->id())->get();
+        $classrooms = Classroom::WHERE('user_id', auth()->id())->get();
 
         return view('users.edit')->withUser($user);
     }
@@ -156,7 +156,7 @@ class UserController extends Controller
         $user->university = $request->university;
         $user->department = $request->department;
         $user->yos = $request->yos;
-        // $user->classroom_id = $request->classroom_id;
+        $user->classroom_id = $request->classroom_id;
         $user->regno = $request->regno;
 
         if($request->hasFile('avatar'))

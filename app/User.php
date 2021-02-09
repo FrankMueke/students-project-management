@@ -51,6 +51,7 @@ class User extends Authenticatable
     }
     public function classrooms()
     {
-        return $this->belongsToMany('App\Classroom','classroom_user', 'user_id', 'classroom_id');
+        return $this->hasMany('App\Classroom');
+        // return $this->belongsToMany('App\Classroom','classroom_user', 'user_id', 'classroom_id');
     }
 }

@@ -121,7 +121,7 @@ class CourseController extends Controller
 
         $course->save();
 
-        $request = session()->flash('sucess', 'Course edited successfully');
+        $request = session()->flash('success', 'Course edited successfully');
 
         return redirect()->route('courses.show', $course->id);
     }
