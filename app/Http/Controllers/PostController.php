@@ -40,7 +40,8 @@ class PostController extends Controller
     public function create()
     {
         $courses = Course::all();
-        return view('posts.create', compact('courses'));
+        $classrooms= Classroom::all();
+        return view('posts.create', compact('courses'),('classrooms'));
     }
 
     /**

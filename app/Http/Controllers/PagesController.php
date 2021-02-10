@@ -26,8 +26,9 @@ class PagesController extends Controller
 
     // }
     public function getIndex(){
-        $user= Auth::user()->id;
-        $posts= Post::all();
+        $user= Auth::user();
+        $posts= Post::where('user_id', auth()->id())->get();
+        // $classrooms = Classroom::where('user_id', '=', 'supervisor_id')->get();
         $classrooms = Classroom::all();
             
             return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
@@ -35,7 +36,7 @@ class PagesController extends Controller
         }
     // public function getIndex(){
     // $user= Auth::user();
-    // $posts= Post::all();
+    // $posts= Post::whereIn('classroom_id, function)
         
     // // $classrooms = Classroom::with('posts')->get();
     // return view('pages.welcome')->withPosts($posts)->withUser($user);

@@ -128,7 +128,7 @@ class UserController extends Controller
         $user = User::find($id);
         $classrooms = Classroom::WHERE('user_id', auth()->id())->get();
 
-        return view('users.edit')->withUser($user);
+        return view('users.edit')->withUser($user)->withClassrooms($classrooms);
     }
 
     /**
