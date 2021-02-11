@@ -11,5 +11,6 @@
    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet"> 
     <script src="https://source.zoom.us/1.7.9/lib/vendor/jquery.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     

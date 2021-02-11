@@ -50,9 +50,9 @@ Route::get('/messages/{ids}', 'MessageController@chat')->name('messages.chat');
 
 //zoomintegration
 
-// Route::get('/', function () {
-//     return view('app');
-// });
+Route::get('/join', function () {
+    return view('app');
+});
 
 // Route::get('/{any}', function () {
 //     return view('app');})->where('any','.*');
