@@ -137,7 +137,7 @@ a {
 } */
 
 .submit_btn {
-    background: : transparent;
+    background: transparent;
 }
 
 #myFileInput {
@@ -156,5 +156,14 @@ a {
 
 #zmmtg-root {
     background-color: transparent!important;
-    position: relative!important;
 }
+
+
+/* body {
+    overflow: hidden;
+}
+
+#contents {
+    overflow: auto;
+    height: 100%;
+} */

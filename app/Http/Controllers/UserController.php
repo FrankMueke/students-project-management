@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Classroom;
+use App\Course;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -52,7 +53,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $courses = DB::table('courses')->where('user_id', auth()->id())->get();
+        // $courses = DB::table('courses')->where('user_id', auth()->id())->get();
+        $courses = Course::all();
         if(!\Gate::allows('isAdmin'))
         {
             abort(403, "Sorry, you cannot do these actions");
@@ -88,7 +90,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->user_type = $request->user_type;
         $user->supervisor_id = $request->supervisor_id;
-        $user->classroom_id = $request->classroom_id;
+        // $user->classroom_id = $request->classroom_id;
         $user->course_id = $request->course_id;
         $user->department = $request->department;
         $user->regno = $request->regno;
@@ -126,8 +128,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $classrooms = Classroom::WHERE('user_id', auth()->id())->get();
-
+        // $classrooms = Classroom::WHERE('user_id', auth()->id())->get();
+        $classrooms = Classroom::all();
         return view('users.edit')->withUser($user)->withClassrooms($classrooms);
     }
 
@@ -156,7 +158,7 @@ class UserController extends Controller
         $user->university = $request->university;
         $user->department = $request->department;
         $user->yos = $request->yos;
-        $user->classroom_id = $request->classroom_id;
+        // $user->classroom_id = $request->classroom_id;
         $user->regno = $request->regno;
 
         if($request->hasFile('avatar'))

@@ -50,7 +50,7 @@ const router = new VueRouter({
     routes: routes
 });
 
-// const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
-const app = new Vue({
-    el: '#app',
-});
+const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+// const app = new Vue({
+//     el: '#app',
+// });

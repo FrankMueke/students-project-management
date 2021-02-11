@@ -46,14 +46,14 @@
             </div>
             @endcan
             @can('isSupervisor')
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="classroom">Add Classroom</label>
                 <select name="classroom_id" id="classroom_id">
                 @foreach($classrooms as $classroom)
                     <option value="{{$classroom->id}}">{{$classroom->name}}</option>
                 @endforeach
                 </select>
-            </div>
+            </div> -->
             @endcan
            <button type="submit" class="pull-right btn btn-sm btn-primary">Update Profile</button>
         </form>

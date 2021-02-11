@@ -18,11 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/styles.css') }}" rel="stylesheet"> -->
     <style>
     
     #zmmtg-root{
       background-color:transparent!important;
-      position:relative!important;
+      /* position:relative!important; */
     }
   </style>
    

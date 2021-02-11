@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Classroom;
+use App\Course;
 use Illuminate\Http\Request;
 use App\User;
+
 use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
@@ -31,7 +33,8 @@ class StudentController extends Controller
     public function create()
     {
         $supervisors = User::where('user_type', 'supervisor')->get();
-        $courses = DB::table('courses')->where('user_id', auth()->id())->get();
+        // $courses = DB::table('courses')->where('user_id', auth()->id())->get();
+        $courses = Course::all();
         if(!\Gate::allows('isAdmin'))
         {
             abort(403, "Sorry, you cannot do these actions");
