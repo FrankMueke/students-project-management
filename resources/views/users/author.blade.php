@@ -19,6 +19,7 @@
                         <h4 class="text-center heading">{{ $user->user_type }}</h4>
                         @can('isSupervisor')
                         <button type="submit" class="btn btn-outline-primary btn-block btn-sm"><a href="{{ route('users.edit', $user->id)}}">Add to my class</a></button>
+                        <button type="submit" class="btn btn-primary btn-block btn-sm"><a href="{{ route('grades.edit', $user->id)}}">Grade Students</a></button>
                         @endcan
                     </div>
                 </div>

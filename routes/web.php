@@ -45,7 +45,10 @@ Route::resource('supervisors', 'SupervisorController');
 //messages
 Route::get('/messages', 'MessageController@index')->name('messages.index');
 Route::get('/messages/{ids}', 'MessageController@chat')->name('messages.chat');
-
+//Grades
+Route::resource('grades', 'GradeController')->except('update');
+// Route::get('/grades/edit/{id}','GradeController@edit');
+// Route::post('grades/{id}', 'Gradecontroller@update')->name('grades.update');
 
 
 //zoomintegration
