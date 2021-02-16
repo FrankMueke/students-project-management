@@ -4,9 +4,8 @@
 
 <div class="row">
     <div class="col-md-6 offset-3">
-        <form action="{{ route('grades.update', $grade->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('grades.store')}}" method="POST" enctype="multipart/form-data">
             @csrf 
-         @method('PATCH')
          <div class="form-group">
                 <label for="student">Student</label>
                 <select name="user_id" id="user_id">
@@ -16,27 +15,26 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="proposal">Proposal Verdit</label>
-                <input type="text" name="proposal" value="{{$grade->proposal}}" class="form-control">
+                <label for="proposal">Proposal Verdit (Pass or Fail)</label>
                 <select name="proposal" id="proposal">
                     <option value="pass">Pass</option>
                     <option value="fail">Fail</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="progress">Progress score</label>
-                <input type="text" name="progress" value="{{$grade->proposal}}" class="form-control">
+                <label for="progress">Progress score /35</label>
+                <input type="text" name="progress" class="form-control">
             </div>
             <div class="form-group">
-                <label for="final">Final Score</label>
-                <input type="text" name="final" value="{{$grade->final}}" class="form-control">
+                <label for="final">Final Score /45</label>
+                <input type="text" name="final" class="form-control">
             </div>
             <div class="form-group">
-                <label for="total">Total</label>
-                <input type="text" name="total" value="{{$grade->total}}" class="form-control">
+                <label for="total">Total /80</label>
+                <input type="text" name="total" class="form-control">
             </div>
         
-           <button type="submit" class="pull-right btn btn-sm btn-primary">Update Grade</button>
+           <button type="submit" class="pull-right btn btn-sm btn-primary">Add Grade</button>
         </form>
     </div>
 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Grade;
+use Illuminate\Support\Facades\Auth;
 
 class GradeController extends Controller
 {
@@ -15,7 +16,10 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+        $user= Auth::user();
+        $grades= Grade::all();
+
+        return view('grades.index', compact('grades'));
     }
 
     /**
@@ -25,7 +29,9 @@ class GradeController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::where('supervisor_id',auth()->id())->get();
+
+        return view('grades.create', compact('users'));
     }
 
     /**
@@ -36,7 +42,26 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, array(
+            'user_id' => 'required',
+            'proposal' => 'sometimes',
+            'progress' => 'numeric|sometimes',
+            'final' => 'numeric|sometimes',
+            'total' => 'numeric|sometimes'
+        ));
+        $grade = new Grade();
+
+        $grade->user_id = $request->user_id;
+        $grade->proposal = $request->proposal;
+        $grade->progress = $request->progress;
+        $grade->final = $request->final;
+
+
+        $grade->save();
+
+        $request->Session()->flash('success', 'Grade saved successfully');
+
+        return back();
     }
 
     /**
@@ -58,9 +83,10 @@ class GradeController extends Controller
      */
     public function edit($id)
     {
-
+        $user= Auth::user();
+        $users = User::where('supervisor_id', auth()->id())->get();;
         $grade = Grade::find($id);
-        return view('grades.edit')->withGrade($grade);
+        return view('grades.edit')->withGrade($grade)->withUsers($users);
     }
 
     /**
@@ -75,19 +101,19 @@ class GradeController extends Controller
         
 
         $this->validate($request, array(
+            'user_id' => 'required',
             'proposal' => 'sometimes',
-            'progress' => 'numeric|min:2|max:2|sometimes',
-            'final' => 'numeric|min:2|max:2|sometimes',
-            'total' => 'numeric|min:2|max:2|sometimes'
+            'progress' => 'numeric|sometimes',
+            'final' => 'numeric|sometimes',
+            'total' => 'numeric|sometimes'
         ));
-        $user = User::find($id);
         $grade = Grade::find($id);
 
+        $grade->user_id = $request->user_id;
         $grade->proposal = $request->proposal;
         $grade->progress = $request->progress;
         $grade->final = $request->final;
 
-        $grade->user()->associate($user);
 
         $grade->save();
 

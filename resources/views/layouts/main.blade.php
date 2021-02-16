@@ -11,7 +11,7 @@
     }
   </style>
 </head>
-    <body>
+    <body class="overflow-auto">
             @include('partials._navbar')
             <div class="container-fluid">
 

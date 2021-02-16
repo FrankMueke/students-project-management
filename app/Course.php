@@ -8,11 +8,11 @@ class Course extends Model
 {
     public function users()
     {
-        return $this->hasMany('User');
+        return $this->belongsToMany('App\User');
     }
     public function posts()
     {
-        return $this->hasMany('Post');
+        return $this->hasMany('App\Post');
     }
     public function classrooms()
     {

@@ -64,7 +64,7 @@ class ClassroomController extends Controller
 
         $course = Course::find($course_id);
         $classroom = new Classroom();
-        
+        $classroom['user_id'] = Auth::user()->id;
         $classroom->name = $request->name;
         // $classroom['user_id'] = Auth::user()->id;
         // $classroom->user()->associate($request->user());
@@ -73,7 +73,8 @@ class ClassroomController extends Controller
 
 
         $classroom->save();
-        $classroom->users()->attach($request->user);
+        // $classroom->users()->attach($request->user);
+        
 
         $request = Session()->flash('success', 'Class created successfully');
 

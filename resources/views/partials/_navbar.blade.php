@@ -39,9 +39,12 @@
           @endcannot
           @can('isSupervisor')
           <a class="dropdown-item" href="{{ route('users.index')}}"> My students</a>
+          <a class="dropdown-item" href="{{ route('grades.create')}}"> Grade students</a>
           @endcan
           <a class="dropdown-item" href="{{ route('users.edit', Auth::id())}}">Update Profile</a>
-          <a class="nav-link" href="{{ route('messages.index') }}">Messages</a>
+          <a class="dropdown-item" href="{{ route('messages.index') }}">Messages</a>
+          <a class="dropdown-item" href="{{ route('grades.index') }}">Grades</a>
+          
         <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

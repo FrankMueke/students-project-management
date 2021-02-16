@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
     public function courses()
     {
-        return $this->belongsTo('App\Course');
+        return $this->hasMany('App\Course');
     }
     public function classrooms()
     {

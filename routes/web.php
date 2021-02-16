@@ -46,7 +46,7 @@ Route::resource('supervisors', 'SupervisorController');
 Route::get('/messages', 'MessageController@index')->name('messages.index');
 Route::get('/messages/{ids}', 'MessageController@chat')->name('messages.chat');
 //Grades
-Route::resource('grades', 'GradeController')->except('update');
+Route::resource('grades', 'GradeController');
 // Route::get('/grades/edit/{id}','GradeController@edit');
 // Route::post('grades/{id}', 'Gradecontroller@update')->name('grades.update');
 
@@ -54,7 +54,7 @@ Route::resource('grades', 'GradeController')->except('update');
 //zoomintegration
 
 Route::get('/join', function () {
-    return view('app');
+    return view('app')->name('join.index');
 });
 
 // Route::get('/{any}', function () {
