@@ -67,7 +67,7 @@ class PostController extends Controller
         $this->validate($request,array(
             'title' => 'required|min:5|max:60',
             'body' => 'required',
-            'classroom_id' => 'required|integer',
+            'classroom_id' => 'sometimes|integer',
            
             'featured_file' => 'sometimes'
         ));

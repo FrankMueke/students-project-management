@@ -29,9 +29,9 @@ class PagesController extends Controller
         $user= Auth::user();
         $posts= Post::where('user_id', auth()->id())->get();
         // $classrooms = Classroom::where('user_id', '=', 'supervisor_id')->get();
-        $classrooms = Classroom::all();
+        $classrooms = Classroom::where('user_id', auth()->id())->get();
             
-            return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms);
+            return view('pages.welcome')->withPosts($posts)->withClassrooms($classrooms)->withUser($user);
     
         }
     // public function getIndex(){

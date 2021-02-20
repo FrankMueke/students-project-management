@@ -28,6 +28,7 @@ class ClassroomController extends Controller
     {
         $course = DB::table('courses')->get();
         $classrooms = DB::table('classrooms')->where('user_id',auth()->id())->get();
+        
         return view('classrooms.index')->withClassrooms($classrooms)->withCourses($course);
     }
 

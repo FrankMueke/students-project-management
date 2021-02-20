@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <div class="row">
+@cannot('isSupervisor')
     <div class="col-md-8">
         
     <dl>
@@ -21,6 +22,7 @@
             <button type="submit" class="btn btn-danger btn-block">Delete Course</button>
         </form>
     </div>
+    @endcannot
     @can('isSupervisor')
             
             <div class="col-md-4 offset-8">

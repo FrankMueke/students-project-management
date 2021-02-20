@@ -25,7 +25,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::where('user_id', auth()->id())->get();
+        $courses = Course::all();
         return view('courses.index')->withCourses($courses);
     }
 

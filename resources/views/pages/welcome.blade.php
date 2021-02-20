@@ -12,8 +12,9 @@
                             <label for="title">Title</label>
                             <input type="text" name="title" class="form-control">
                         </div>
+                        @cannot('isStudent')
                         <div class="form-group titles">
-                            <label for="course">Post In</label>
+                            <label for="classroom_id">Post In</label>
                             <select name="classroom_id" id="classroom_id" class="form-control">
 
                                 @foreach($classrooms as $classroom)
@@ -21,6 +22,13 @@
                                 @endforeach
                             </select>
                         </div>
+                        @endcannot
+                        @can('isStudent')
+                        <div class="form-group titles">
+                            <label for="classroom">Post In</label>
+                            <input type="text" name="classroom_id" value="{{$user->classroom_id}}" readonly class="form-control">
+                        </div>
+                        @endcan
                         <div class=" textareacont">
                         <input type="file" id="myFileInput" name="featured_file"/>
                             <label for="featured_file"> <img onclick="document.getElementById('myFileInput').click()" src="https://img.icons8.com/metro/32/000000/attach.png" alt="attach file"></label>
