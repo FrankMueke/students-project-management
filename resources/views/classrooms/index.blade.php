@@ -20,6 +20,9 @@
                 @endforeach
             </tbody>
         </table>
+        @can('isStudent')
+        <a href="{{ route('classrooms.show', $user->classroom_id)}}">My Class Posts >>> Click Here{{ $user->classroom_id}} </a>
+        @endcan
     </div>
     <div class="col-md-4">
 

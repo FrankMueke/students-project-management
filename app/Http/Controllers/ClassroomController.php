@@ -26,10 +26,11 @@ class ClassroomController extends Controller
      */
     public function index()
     {
+        $user= Auth::user();
         $course = DB::table('courses')->get();
         $classrooms = DB::table('classrooms')->where('user_id',auth()->id())->get();
         
-        return view('classrooms.index')->withClassrooms($classrooms)->withCourses($course);
+        return view('classrooms.index')->withClassrooms($classrooms)->withCourses($course)->withUser($user);
     }
 
     /**

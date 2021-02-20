@@ -54,7 +54,7 @@ Route::resource('grades', 'GradeController');
 //zoomintegration
 
 Route::get('/join', function () {
-    return view('app')->name('join.index');
+    return view('app');
 });
 
 // Route::get('/{any}', function () {
