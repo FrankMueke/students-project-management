@@ -33,6 +33,7 @@
           <a class="dropdown-item" href="{{ route('posts.index') }}">All Posts</a>
           <a class="dropdown-item" href="{{ route('users.create') }}">Register SuperUser</a>
           <a class="dropdown-item" href="{{ route('students.create') }}">Create Student</a>
+          <a class="dropdown-item" href="{{ route('grades.create')}}"> Grade students</a>
           @endcan
           @cannot('isStudent')
           <a class="dropdown-item" href="{{ route('courses.index') }}">My Courses</a>
@@ -44,6 +45,9 @@
           <a class="dropdown-item" href="{{ route('users.edit', Auth::id())}}">Update Profile</a>
           <a class="dropdown-item" href="{{ route('messages.index') }}">Messages</a>
           <a class="dropdown-item" href="{{ route('grades.index') }}">Grades</a>
+          @can('isStudent')
+          <a class="dropdown-item" href="{{ route('grades.show', Auth::id()) }}">View Grade</a>
+          @endcan
           
         <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

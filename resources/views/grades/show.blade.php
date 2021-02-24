@@ -24,11 +24,11 @@
                     <th>Progress /35</th>
                     <th>Final /65</th>
                     <th>Total score /100</th>
-                    <th>AGP score /100</th>
+                    <th>Grade score</th>
                 </thead> 
     
                 <tbody>
-    
+                @if(count($grades) > 0)
                     @foreach($grades as $grade)
     
                     <tr>
@@ -40,13 +40,11 @@
                         <td>{{$grade->final}}</td>
                         <td>{{$grade->total}}</td>
                         <td>{{$grade->agp}}</td>
-                        <td>
-                        @if(Auth::id() == $grade->supervisor_id)
-                            <a href="{{ action('GradeController@edit', [$grade->id]) }} " class="btn btn-outline-dark btn-block btn-sm">Edit</a>
-                        @endif
-                    </td>
                     </tr>
                     @endforeach
+                    @else
+                                <h1> No grades yet</h1>
+                    @endif
                 </tbody>
             </table>
 

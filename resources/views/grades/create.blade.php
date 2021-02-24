@@ -23,15 +23,11 @@
             </div>
             <div class="form-group">
                 <label for="progress">Progress score /35</label>
-                <input type="text" name="progress" class="form-control">
+                <input type="text" name="progress" class="form-control" placeholder="0">
             </div>
             <div class="form-group">
-                <label for="final">Final Score /45</label>
-                <input type="text" name="final" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="total">Total /80</label>
-                <input type="text" name="total" class="form-control">
+                <label for="final">Final Score /65</label>
+                <input type="text" name="final" class="form-control" placeholder="0">
             </div>
         
            <button type="submit" class="pull-right btn btn-sm btn-primary">Add Grade</button>

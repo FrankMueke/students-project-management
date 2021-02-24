@@ -14,8 +14,7 @@
                 @foreach($classrooms as $classroom)
                 <tr>
                     <td>{{$classroom->id}}</td>
-                    <td>{{$classroom->name}}</td>
-                    <td><a href="{{ route('classrooms.show', $classroom->id)}}">{{ $classroom->name}} </a></td>
+                    <td>{{$classroom->name}}<a href="{{ route('classrooms.show', $classroom->id)}}">{{ $classroom->name}} </a></td>
                 </tr>
                 @endforeach
             </tbody>

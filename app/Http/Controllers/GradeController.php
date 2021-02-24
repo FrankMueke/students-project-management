@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class GradeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +21,7 @@ class GradeController extends Controller
     public function index()
     {
         $user= Auth::user();
-        $grades= Grade::all();
+        $grades= Grade::orderBy('total', 'DESC')->get();
 
         return view('grades.index', compact('grades'));
     }
@@ -43,11 +47,11 @@ class GradeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
-            'user_id' => 'required',
+            'user_id' => 'required|unique:grades,user_id',
             'proposal' => 'sometimes',
-            'progress' => 'numeric|sometimes',
-            'final' => 'numeric|sometimes',
-            'total' => 'numeric|sometimes'
+            'progress' => 'sometimes|max:35',
+            'final' => 'sometimes|max:65',
+            'total' => 'sometimes|max:100'
         ));
         $grade = new Grade();
 
@@ -55,6 +59,18 @@ class GradeController extends Controller
         $grade->proposal = $request->proposal;
         $grade->progress = $request->progress;
         $grade->final = $request->final;
+        $grade->total = $request->progress + $request->final;
+        $grade['supervisor_id'] = Auth::user()->id;
+        $grade->agp = '';
+        if($grade->total >=0 && $grade->total<= 49){
+                $grade->agp = 'Fail';
+            }else if($grade->total > 49 && $grade->total <= 59){
+                $grade->agp = 'C';
+            }else if($grade->total > 59 && $grade->total <=69){
+                $grade->agp = 'B';
+            }else if($grade->total > 69 && $grade->total <=100){
+                $grade->agp = 'A';
+            }
 
 
         $grade->save();
@@ -72,7 +88,9 @@ class GradeController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $grades = Grade::where('user_id', auth()->id())->get();
+        return view('grades.show')->withUser($user)->withGrades($grades);
     }
 
     /**
@@ -103,16 +121,26 @@ class GradeController extends Controller
         $this->validate($request, array(
             'user_id' => 'required',
             'proposal' => 'sometimes',
-            'progress' => 'numeric|sometimes',
-            'final' => 'numeric|sometimes',
-            'total' => 'numeric|sometimes'
+            'progress' => 'numeric|sometimes|max:35',
+            'final' => 'numeric|sometimes|max:65',
         ));
         $grade = Grade::find($id);
 
-        $grade->user_id = $request->user_id;
-        $grade->proposal = $request->proposal;
-        $grade->progress = $request->progress;
-        $grade->final = $request->final;
+        $grade->user_id = $request->input('user_id');
+        $grade->proposal = $request->input('proposal');
+        $grade->progress = $request->input('progress');
+        $grade->final = $request->input('final');
+        $grade->total = $request->input('progress') + $request->input('final');
+        $grade->agp = '';
+        if($grade->total >=0 && $grade->total<= 49){
+                $grade->agp = 'Fail';
+            }else if($grade->total > 49 && $grade->total <= 59){
+                $grade->agp = 'C';
+            }else if($grade->total > 59 && $grade->total <=69){
+                $grade->agp = 'B';
+            }else if($grade->total > 69 && $grade->total <=100){
+                $grade->agp = 'A';
+            }
 
 
         $grade->save();
